@@ -7,19 +7,22 @@ class Bold {
   private isActice: boolean = false
 
   constructor(editor: Editor) {
-    const clickHandle = () => {
-      // 恢复选区
-      this.editor.selection.restoreSelection()
-      document.execCommand('bold', false)
-      // 高亮
-      this.changeActive()
-    }
     const dom = document.createElement('div')
     dom.className = 'bold menu-item'
     dom.innerText = this.name
-    dom.addEventListener('click', clickHandle)
+    dom.addEventListener('click', () => {
+      this.clickHandle()
+    })
     this.el = dom
     this.editor = editor
+  }
+
+  clickHandle() {
+    // 恢复选区
+    this.editor.selection.restoreSelection()
+    document.execCommand('bold', false)
+    // 高亮
+    this.changeActive()
   }
 
   changeActive() {
