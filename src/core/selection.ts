@@ -6,17 +6,22 @@ class Selection {
   public editor: Editor
 
   constructor(editor: Editor, editorElement: HTMLElement) {
-    const saveRange = () => {
-      const selection = window.getSelection()
-      if (!selection || selection.rangeCount === 0) return
-      const range = selection.getRangeAt(0)
-      this.savedRange = range
-      this.editor.menu.changeActive()
-    }
-    editorElement.addEventListener('mouseup', saveRange)
-    editorElement.addEventListener('keyup', saveRange)
+    editorElement.addEventListener('mouseup', () => {
+      this.saveRange()
+    })
+    editorElement.addEventListener('keyup', () => {
+      this.saveRange()
+    })
     this.editorElement = editorElement
     this.editor = editor
+  }
+
+  saveRange() {
+    const selection = window.getSelection()
+    if (!selection || selection.rangeCount === 0) return
+    const range = selection.getRangeAt(0)
+    this.savedRange = range
+    this.editor.menu.changeActive()
   }
 
   restoreSelection() {

@@ -8,7 +8,6 @@ class Bold {
 
   constructor(editor: Editor) {
     const clickHandle = () => {
-      console.log('点击加粗')
       // 恢复选区
       this.editor.selection.restoreSelection()
       document.execCommand('bold', false)
