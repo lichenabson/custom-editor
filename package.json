@@ -1,0 +1,50 @@
+{
+  "name": "customeditor",
+  "version": "0.0.1",
+  "description": "customeditor",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "tsc --emitDeclarationOnly && webpack --config ./build/webpack.prod.js",
+    "dev": "tsc --emitDeclarationOnly && webpack serve --config ./build/webpack.dev.js"
+  },
+  "author": {
+    "name": "lichenabosn",
+    "email": "lichenabosn@gmail.com"
+  },
+  "main": "dist/bundle.js",
+  "types": "dist/types/index.d.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "7.12.3",
+    "@babel/plugin-proposal-class-properties": "7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "7.12.1",
+    "@babel/preset-typescript": "7.12.1",
+    "@types/source-map": "^0.5.7",
+    "@types/webpack-env": "^1.16.0",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "autoprefixer": "^10.1.0",
+    "babel-loader": "8.2.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "fork-ts-checker-webpack-plugin": "6.0.3",
+    "html-webpack-plugin": "^4.5.0",
+    "node-sass": "^5.0.0",
+    "postcss": "^8.2.1",
+    "postcss-loader": "^4.1.0",
+    "precss": "^4.0.0",
+    "prettier": "^2.2.1",
+    "sass-loader": "^10.1.0",
+    "style-loader": "^2.0.0",
+    "typescript": "4.1.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
