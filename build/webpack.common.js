@@ -14,9 +14,22 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(ts|js)x?$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.(ts|js)x?$/, use: ['babel-loader', 'ts-loader'], exclude: /node_modules/ },
       { test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'] },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] },
+      {
+        test: /\.(ts|tsx)$/,
+        enforce: 'pre',
+        use: [
+          {
+            options: {
+              eslintPath: require.resolve('eslint'),
+            },
+            loader: require.resolve('eslint-loader'),
+          },
+        ],
+        exclude: /node_modules/,
+      },
     ],
   },
   plugins: [
